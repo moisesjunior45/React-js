@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 
 // AULA 1 E 2
 // No React existem 2 formas de criar um componente, estas são:
@@ -47,15 +48,16 @@ function App() {
 
 function Avatar(props) {
   return (
-    <div>
-      <img src={props.user.url} alt={props.user.name} />
+    // Usando Css em React
+    <div style={{ backgroundColor: 'blue', padding: 20, width: 150 }}>
+      <img style={{ width: 50, height: 50 }} src={props.user.url} alt={props.user.name} />
       <br />
       <span>{props.user.name}</span>
     </div>
   );
 }
 
-function App() {
+/*function App() {
   
   let user = {
     url:"https://avatars.githubusercontent.com/u/84156546?s=400&u=43abd60f780d76a7d54e753c622f26158d6096ed&v=4",
@@ -64,6 +66,28 @@ function App() {
   return <>
     <Avatar user={user} />
   </>;
+}*/
+
+// Aula 06 - Estilização com StyledComponents
+
+const Site = styled.div`
+  width:400px;
+  height:400px;
+  background-color:#00FF00;
+`;
+
+const Botao = styled.button`
+  font-size:19px;
+  padding:10px 15px;
+`;
+
+function App() {
+
+  return (
+    <Site>
+      <Botao>Clique aqui</Botao>
+    </Site>
+  );
 }
 
 
