@@ -46,7 +46,7 @@ function App() {
 
 // Aula 04 - Componentes e Props
 
-function Avatar(props) {
+/*function Avatar(props) {
   return (
     // Usando Css em React
     <div style={{ backgroundColor: 'blue', padding: 20, width: 150 }}>
@@ -55,7 +55,7 @@ function Avatar(props) {
       <span>{props.user.name}</span>
     </div>
   );
-}
+}*/
 
 /*function App() {
   
@@ -68,7 +68,7 @@ function Avatar(props) {
   </>;
 }*/
 
-// Aula 06 - Estilização com StyledComponents
+// Aula 06 e 07 - Estilização com StyledComponents
 
 const Site = styled.div`
   width:400px;
@@ -79,13 +79,16 @@ const Site = styled.div`
 const Botao = styled.button`
   font-size:19px;
   padding:10px 15px;
+  background-color: ${props => props.ativo === true ? '#0000FF' : '#FF0000'};
+  color: ${props => props.ativo === true ? '#FFF' : '#000'};
 `;
 
 function App() {
 
   return (
     <Site>
-      <Botao>Clique aqui</Botao>
+      <Botao ativo={true}>Clique aqui</Botao>
+      <Botao ativo={false}>Clique aqui</Botao>
     </Site>
   );
 }
