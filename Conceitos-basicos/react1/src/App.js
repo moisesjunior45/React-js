@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import styled from 'styled-components';
 
 // AULA 1 E 2
@@ -68,7 +68,7 @@ function App() {
   </>;
 }*/
 
-// Aula 06 e 07 - Estilização com StyledComponents
+// Aula 06, 07 e 08 - Estilização com StyledComponents
 
 const Site = styled.div`
   width:400px;
@@ -81,16 +81,47 @@ const Botao = styled.button`
   padding:10px 15px;
   background-color: ${props => props.ativo === true ? '#0000FF' : '#FF0000'};
   color: ${props => props.ativo === true ? '#FFF' : '#000'};
+  border:3px solid #FF0000;
+  color:FF0000;
+  background-color:#FFF;
+  margin:5px;
+  border-radius:5px;
 `;
 
-function App() {
+const Botaopequeno = styled(Botao)`
+  padding: 5px 10px;
+  font-size:16px;
+`;
+
+/*function App() {
 
   return (
     <Site>
-      <Botao ativo={true}>Clique aqui</Botao>
-      <Botao ativo={false}>Clique aqui</Botao>
+      // {<Botao ativo={true}>Clique aqui</Botao>
+      // <Botao ativo={false}>Clique aqui</Botao> }
+      <Botao>Clique aqui</Botao>
+      <Botaopequeno>Clique aqui</Botaopequeno>
     </Site>
   );
+}*/
+
+
+// Aula 09 - useState
+
+function App() {
+
+ const [ contagem, setContagem ] = useState( 0 );
+
+ const BotaoAction = () => {
+  setContagem( contagem + 1);
+ }
+
+  return (
+    <>
+      <div>{contagem} vezes</div>
+      <button onClick={BotaoAction}>Clique para aumentar</button>
+    </>
+  )
 }
 
 
