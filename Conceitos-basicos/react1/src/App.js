@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 
 // AULA 1 E 2
@@ -108,13 +108,13 @@ const Botaopequeno = styled(Botao)`
 
 // Aula 09 - useState
 
-function App() {
+/*function App() {
 
- const [ contagem, setContagem ] = useState( 0 );
+  const [contagem, setContagem] = useState(0);
 
- const BotaoAction = () => {
-  setContagem( contagem + 1);
- }
+  const BotaoAction = () => {
+    setContagem(contagem + 1);
+  }
 
   return (
     <>
@@ -122,6 +122,43 @@ function App() {
       <button onClick={BotaoAction}>Clique para aumentar</button>
     </>
   )
+}*/
+
+// Aula 10 - Campo de input
+
+const Input = styled.input`
+  width:400px;
+  height:30px;
+  font-size:16px;
+  padding:10px;
+  border:1px solid #000;
+`;
+
+function App() {
+
+  // const [ texto, setTexto ] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // const handleInput = (e) => {
+  //   setTexto( e.target.value );
+  // };
+
+  const handleButton = () => {
+    alert(email + ' - ' + password);
+  }
+
+  return (
+    <>
+      {/* <Input type="text" value={texto} onChange={handleInput}/>
+      <p>{texto.length} Caracteres</p>  */}
+
+      <Input placeholder="Digite um e-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Input placeholder="Digite uma senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button onClick={handleButton}>Dizer</button>
+
+    </>
+  );
 }
 
 
