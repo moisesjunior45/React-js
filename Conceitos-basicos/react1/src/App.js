@@ -70,7 +70,7 @@ function App() {
 
 // Aula 06, 07 e 08 - Estilização com StyledComponents
 
-const Site = styled.div`
+/*const Site = styled.div`
   width:400px;
   height:400px;
   background-color:#00FF00;
@@ -91,7 +91,7 @@ const Botao = styled.button`
 const Botaopequeno = styled(Botao)`
   padding: 5px 10px;
   font-size:16px;
-`;
+`;*/
 
 /*function App() {
 
@@ -126,6 +126,43 @@ const Botaopequeno = styled(Botao)`
 
 // Aula 10 - Campo de input
 
+/*const Input = styled.input`
+  width:400px;
+  height:30px;
+  font-size:16px;
+  padding:10px;
+  border:1px solid #000;
+`;*/
+
+/*function App() {
+
+  const [ texto, setTexto ] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleInput = (e) => {
+    setTexto( e.target.value );
+  };
+
+  const handleButton = () => {
+    alert(email + ' - ' + password);
+  }
+
+  return (
+    <>
+        <Input type="text" value={texto} onChange={handleInput}/>
+       <p>{texto.length} Caracteres</p> 
+
+      <Input placeholder="Digite um e-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Input placeholder="Digite uma senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button onClick={handleButton}>Dizer</button>
+
+    </>
+  );
+}*/
+
+// Aula 11 - Condicional de exibição
+
 const Input = styled.input`
   width:400px;
   height:30px;
@@ -136,30 +173,34 @@ const Input = styled.input`
 
 function App() {
 
-  // const [ texto, setTexto ] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  // const handleInput = (e) => {
-  //   setTexto( e.target.value );
-  // };
-
-  const handleButton = () => {
-    alert(email + ' - ' + password);
-  }
+  const [isLogged, setIsLogged] = useState(false);
 
   return (
     <>
-      {/* <Input type="text" value={texto} onChange={handleInput}/>
-      <p>{texto.length} Caracteres</p>  */}
 
       <Input placeholder="Digite um e-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <Input placeholder="Digite uma senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleButton}>Dizer</button>
 
+      {/*{isLogged === true &&
+        <button>Sair</button>
+      }
+
+      {isLogged === false &&
+        <button>Fazer Login</button>
+      }*/}
+
+      {/* Outra forma de fazer utilizando Operador Ternário */}
+      {isLogged ? <button>Sair</button> : <button>Fazer Login</button>}
+
+      {email.length > 0 &&
+        <div>
+          <p>{email.length} Caractere{email.length !== 1 ? 's' : ''}</p>
+        </div>
+      }
     </>
   );
 }
+
 
 
 
