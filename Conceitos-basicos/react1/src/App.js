@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
+import SearchBox from './components/SearchBox';
 
 // AULA 1 E 2
 // No React existem 2 formas de criar um componente, estas são:
@@ -163,7 +164,7 @@ const Botaopequeno = styled(Botao)`
 
 // Aula 11 - Condicional de exibição
 
-const Input = styled.input`
+/*const Input = styled.input`
   width:400px;
   height:30px;
   font-size:16px;
@@ -179,9 +180,9 @@ function App() {
   return (
     <>
 
-      <Input placeholder="Digite um e-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Input placeholder="Digite um e-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />*/
 
-      {/*{isLogged === true &&
+{/*{isLogged === true &&
         <button>Sair</button>
       }
 
@@ -189,18 +190,74 @@ function App() {
         <button>Fazer Login</button>
       }*/}
 
-      {/* Outra forma de fazer utilizando Operador Ternário */}
-      {isLogged ? <button>Sair</button> : <button>Fazer Login</button>}
+{/* Outra forma de fazer utilizando Operador Ternário */ }
+/*{isLogged ? <button>Sair</button> : <button>Fazer Login</button>}
 
-      {email.length > 0 &&
-        <div>
-          <p>{email.length} Caractere{email.length !== 1 ? 's' : ''}</p>
-        </div>
-      }
+{email.length > 0 &&
+  <div>
+    <p>{email.length} Caractere{email.length !== 1 ? 's' : ''}</p>
+  </div>
+}
+</>
+);
+}*/
+
+// Aula 13 - Ciclo de vida (useEffect)
+
+/*function App() {
+
+  const [contagem, setContagem] = useState(0);
+
+  useEffect(() => {
+    if (contagem == 0) {
+      document.title = "Começou a brincadeira!";
+    } else {
+      document.title = "Contagem: " + contagem;
+    }
+    
+  }, [contagem]);
+
+  function aumentarAction() {
+    setContagem(contagem + 1);
+  }
+
+  return (
+    <>
+      <h1>Contagem: {contagem}</h1>
+      <button onClick={aumentarAction}>Aumentar Número</button>
+    </>
+  );
+}*/
+
+// Aula 14 - Separando em componentes
+
+function App() {
+
+  const [searchText, setSearchText] = useState('');
+
+  function handleSearchInput(novoTexto) {
+    setSearchText(novoTexto);
+  }
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+      <SearchBox
+        frasePadrao="Faça sua busca..."
+        onChangeText={handleSearchInput}
+      />
+
+      <SearchBox
+        frasePadrao={searchText}
+        
+      />
+
+      <hr />
+
+      Texto procurado: {searchText}
     </>
   );
 }
-
 
 
 
