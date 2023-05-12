@@ -229,7 +229,7 @@ function App() {
   );
 }*/
 
-// Aula 14 - Separando em componentes
+// Aula 14 e 15 - Separando e trocando dados entre componentes
 
 function App() {
 
@@ -249,9 +249,8 @@ function App() {
 
       <SearchBox
         frasePadrao={searchText}
-        
-      />
 
+      />
       <hr />
 
       Texto procurado: {searchText}
