@@ -231,7 +231,7 @@ function App() {
 
 // Aula 14 e 15 - Separando e trocando dados entre componentes
 
-function App() {
+/*function App() {
 
   const [searchText, setSearchText] = useState('');
 
@@ -256,8 +256,177 @@ function App() {
       Texto procurado: {searchText}
     </>
   );
+}*/
+
+// Aula 16 - Exibindo Lista
+
+/*function App() {
+
+  const [searchText, setSearchText] = useState('');
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    setList([
+      { title: 'Comprar o bolo', done: false },
+      { title: 'Pegar o cachorro no Petshop', done: true },
+      { title: 'Gravar a aula', done: false }
+    ]);
+  }, []);
+
+  function handleSearchInput(novoTexto) {
+    setSearchText(novoTexto);
+  }
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+      <SearchBox
+        frasePadrao="Faça sua busca..."
+        onChangeText={handleSearchInput}
+      />
+
+      <hr />
+
+      <ul>
+        {list.map((item, index) => (
+          <li key={index}>
+            {item.done &&
+              <del>{item.title}</del>
+            }
+            {!item.done &&
+              item.title
+            }
+          </li>
+        ))}
+      </ul>
+
+
+    </>
+  );
+}*/
+
+// Aula 17 - Adicionando Novos Itens
+
+/* App() {
+
+  const [searchText, setSearchText] = useState('');
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    setList([
+      { title: 'Comprar o bolo', done: false },
+      { title: 'Pegar o cachorro no Petshop', done: true },
+      { title: 'Gravar a aula', done: false }
+    ]);
+  }, []);
+
+  function addAction(newItem) {
+    let newList = [...list];
+    newList.push({ title: newItem, done: false });
+    setList(newList);
+  }
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+      <SearchBox
+        frasePadrao="Adicione um item"
+        onEnter={addAction}
+      />
+
+      <hr />
+
+      <ul>
+        {list.map((item, index) => (
+          <li key={index}>
+            {item.done &&
+              <del>{item.title}</del>
+            }
+            {!item.done &&
+              item.title
+            }
+          </li>
+        ))}
+      </ul>
+
+
+    </>
+  );
+}*/
+
+// Aula 18 - Marcando como feito
+
+/*function App() {
+
+  const [searchText, setSearchText] = useState('');
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    setList([
+      { title: 'Comprar o bolo', done: false },
+      { title: 'Pegar o cachorro no Petshop', done: true },
+      { title: 'Gravar a aula', done: false }
+    ]);
+  }, []);
+
+  function addAction(newItem) {
+    let newList = [...list];
+    newList.push({ title: newItem, done: false });
+    setList(newList);
+  }
+
+  function handleToggleDone(index) {
+    let newList = [...list];
+    newList[index].done = !newList[index].done;
+
+    setList(newList);
+  }
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+      <SearchBox
+        frasePadrao="Adicione um item"
+        onEnter={addAction}
+      />
+
+      <hr />
+
+      <ul>
+        {list.map((item, index) => (
+          <li key={index} onClick={() => handleToggleDone(index)}>
+            {item.done &&
+              <del>{item.title}</del>
+            }
+            {!item.done &&
+              item.title
+            }
+
+          </li>
+        ))}
+      </ul>
+
+
+    </>
+  );
+}*/
+
+// Aula 19 - LocalStorage
+
+
+function App() {
+
+  const [name, setName] = useState(localStorage.getItem('name'));
+
+  useEffect(() => {
+    localStorage.setItem('name', name);
+  }, [name]);
+
+  return (
+    <>
+      <input type="text" value={name} onChange={e => setName(e.target.value)} />
+    </>
+  );
 }
-
-
 
 export default App;
