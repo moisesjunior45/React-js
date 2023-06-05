@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import SearchBox from './components/SearchBox';
+import Modal from './components/Modal';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 // AULA 1 E 2
 // No React existem 2 formas de criar um componente, estas são:
@@ -414,7 +416,7 @@ function App() {
 // Aula 19 - LocalStorage
 
 
-function App() {
+/*function App() {
 
   const [name, setName] = useState(localStorage.getItem('name'));
 
@@ -426,6 +428,51 @@ function App() {
     <>
       <input type="text" value={name} onChange={e => setName(e.target.value)} />
     </>
+  );
+}*/
+
+// Aula 20 - Modal
+
+
+/*function App() {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleButtonClick = () => {
+    setModalVisible(true);
+  }
+
+  return (
+    <>
+    <button onClick={handleButtonClick}>Abrir Modal</button>
+    <Modal visible={modalVisible} setVisible={setModalVisible}>
+      <h1>Testando 1,2,3...</h1>
+    </Modal>
+    </>
+  );
+}*/
+
+// Aula 21 - Router - Básico 1
+
+
+function App() {
+
+  return (
+    <BrowserRouter>
+      <header>
+        <h1>Meu site legal</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/sobre">Sobre</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </BrowserRouter>
   );
 }
 
