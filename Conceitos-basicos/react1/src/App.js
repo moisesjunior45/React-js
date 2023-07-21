@@ -533,13 +533,13 @@ function App() {
               <Link to="/sobre">Sobre</Link>
             </li>
             <li>
-            <Link to="/categoria/esportes">Esportes</Link>
+              <Link to="/categoria/esportes">Esportes</Link>
             </li>
             <li>
-            <Link to="/categoria/noticias">Notícias</Link>
+              <Link to="/categoria/noticias">Notícias</Link>
             </li>
             <li>
-            <Link to="/categoria/viagem">Viagem</Link>
+              <Link to="/categoria/viagem">Viagem</Link>
             </li>
           </ul>
         </nav>
@@ -551,7 +551,7 @@ function App() {
           <Home />
         </Route>
 
-        <Route  exact path="/sobre">
+        <Route exact path="/sobre">
           <Sobre />
         </Route>
 
