@@ -519,7 +519,7 @@ function App() {
 
 // Aula 23 - Router - Parâmetros na URL
 
-function App() {
+/*function App() {
   return (
     <BrowserRouter>
       <header>
@@ -567,6 +567,57 @@ function App() {
       </footer>
     </BrowserRouter>
   )
-}
+}*/
 
+// Aula 24 - Router Query
+
+function App() {
+  return (
+    <BrowserRouter>
+      <header>
+        <h1>Meu site legal</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/sobre">Sobre</Link>
+            </li>
+            <li>
+              <Link to="/categoria?tipo=esportes">Esportes</Link>
+            </li>
+            <li>
+              <Link to="/categoria?tipo=noticias">Notícias</Link>
+            </li>
+            <li>
+              <Link to="/categoria?tipo=viagem">Viagem</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <hr />
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route exact path="/sobre">
+          <Sobre />
+        </Route>
+
+        <Route path="/categoria">
+          <Categoria />
+        </Route>
+
+      </Switch>
+
+      <hr />
+      <footer>
+        Todos os direitos reservados...
+      </footer>
+    </BrowserRouter>
+  )
+}
 export default App;
