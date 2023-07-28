@@ -667,7 +667,7 @@ function App() {
 
       <hr />
       <footer>
-        Todos os direitos reservados...
+        Todos os direitos reservados..
       </footer>
     </BrowserRouter>
   )
