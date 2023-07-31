@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import SearchBox from './components/SearchBox';
 import Modal from './components/Modal';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
-import Sobre from './pages/Sobre';
 import Categoria from './pages/Categoria.js';
+import Sobre from './pages/Sobre';
+import Login from './pages/Login';
 
 
 // AULA 1 E 2
@@ -623,7 +624,7 @@ function App() {
 
 // Aula 25 - Router Erro 404
 
-function App() {
+/*function App() {
   return (
     <BrowserRouter>
       <header>
@@ -645,6 +646,9 @@ function App() {
             <li>
               <Link to="/categoria?tipo=viagem">Viagem</Link>
             </li>
+            <li>
+              <Link to="/asdasd">URL que não existe</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -661,6 +665,133 @@ function App() {
 
         <Route path="/categoria">
           <Categoria />
+        </Route>
+
+        <Route path="*">
+          <h4>Página não encontrada!</h4>
+        </Route>
+
+      </Switch>
+
+      <hr />
+      <footer>
+        Todos os direitos reservados...
+      </footer>
+    </BrowserRouter>
+  )
+}*/
+
+// Aula 26 - Router Redirect
+
+/*function App() {
+  return (
+    <BrowserRouter>
+      <header>
+        <h1>Meu site legal</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/sobre">Sobre</Link>
+            </li>
+            <li>
+              <Link to="/quem-somos">Quem Somos</Link>
+            </li>
+            <li>
+              <Link to="/categoria?tipo=esportes">Esportes</Link>
+            </li>
+            <li>
+              <Link to="/categoria?tipo=noticias">Notícias</Link>
+            </li>
+            <li>
+              <Link to="/categoria?tipo=viagem">Viagem</Link>
+            </li>
+            <li>
+              <Link to="/asdasd">URL que não existe</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <hr />
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route exact path="/sobre">
+          <Sobre />
+        </Route>
+
+        <Route path="/quem-somos">
+          <Redirect to="/sobre" />
+        </Route>
+
+        <Route path="/categoria">
+          <Categoria />
+        </Route>
+
+        <Route path="*">
+          <h4>Página não encontrada!</h4>
+        </Route>
+
+      </Switch>
+
+      <hr />
+      <footer>
+        Todos os direitos reservados...
+      </footer>
+    </BrowserRouter>
+  )
+}*/
+
+// Aula 27 - Router Rotas Privadas
+
+const isLogged = false;
+
+const PrivateRoute = ({children, ...rest}) => {
+  return (
+    <Route {...rest}>
+      {isLogged ? children : <Redirect to="/login" />}
+    </Route>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <header>
+        <h1>Meu site legal</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/sobre">Sobre</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <hr />
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route path="/login">
+          <Login />
+        </Route>
+
+        <PrivateRoute path="/sobre">
+          <Sobre />
+        </PrivateRoute>
+
+        <Route path="*">
+          <h4>Página não encontrada!</h4>
         </Route>
 
       </Switch>
